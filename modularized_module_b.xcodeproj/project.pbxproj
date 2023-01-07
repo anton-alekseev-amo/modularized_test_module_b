@@ -12,7 +12,33 @@
 		698749F52969B50200AA3DD0 /* modularized_module_b.h in Headers */ = {isa = PBXBuildFile; fileRef = 698749F22969B50200AA3DD0 /* modularized_module_b.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69874A0A2969B63100AA3DD0 /* ModuleBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69874A082969B63100AA3DD0 /* ModuleBViewController.swift */; };
 		69874A0B2969B63100AA3DD0 /* ModuleBTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69874A092969B63100AA3DD0 /* ModuleBTableViewCell.swift */; };
+		69874A5B2969BE7700AA3DD0 /* modularized_shared_module.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69874A5A2969BE7100AA3DD0 /* modularized_shared_module.framework */; };
+		69874A5C2969BE7700AA3DD0 /* modularized_shared_module.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69874A5A2969BE7100AA3DD0 /* modularized_shared_module.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		69874A592969BE7100AA3DD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69874A552969BE7100AA3DD0 /* modularized_shared_module.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 69874A332969BC9900AA3DD0;
+			remoteInfo = modularized_shared_module;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		69874A5D2969BE7700AA3DD0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				69874A5C2969BE7700AA3DD0 /* modularized_shared_module.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		41CC12646DAC47EDEA4B3952 /* Pods-modularized_module_b.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-modularized_module_b.debug.xcconfig"; path = "Target Support Files/Pods-modularized_module_b/Pods-modularized_module_b.debug.xcconfig"; sourceTree = "<group>"; };
@@ -22,6 +48,7 @@
 		698749F32969B50200AA3DD0 /* modularized_module_b.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = modularized_module_b.docc; sourceTree = "<group>"; };
 		69874A082969B63100AA3DD0 /* ModuleBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleBViewController.swift; sourceTree = "<group>"; };
 		69874A092969B63100AA3DD0 /* ModuleBTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleBTableViewCell.swift; sourceTree = "<group>"; };
+		69874A552969BE7100AA3DD0 /* modularized_shared_module.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = modularized_shared_module.xcodeproj; path = ../../modularized_shared_module/modularized_shared_module.xcodeproj; sourceTree = "<group>"; };
 		7813FE35D28C73F9B70CA6C2 /* Pods-modularized_module_b.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-modularized_module_b.release.xcconfig"; path = "Target Support Files/Pods-modularized_module_b/Pods-modularized_module_b.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -30,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69874A5B2969BE7700AA3DD0 /* modularized_shared_module.framework in Frameworks */,
 				5936FB830D73C6ED72C64673 /* Pods_modularized_module_b.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,6 +82,7 @@
 				698749F02969B50200AA3DD0 /* Products */,
 				6584E452E98DD7945A9F61EE /* Pods */,
 				C2F70E8CDCC9908E0F3D74F2 /* Frameworks */,
+				69874A542969BE6600AA3DD0 /* Projects */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,6 +111,22 @@
 				69874A092969B63100AA3DD0 /* ModuleBTableViewCell.swift */,
 			);
 			path = "Module B";
+			sourceTree = "<group>";
+		};
+		69874A542969BE6600AA3DD0 /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				69874A552969BE7100AA3DD0 /* modularized_shared_module.xcodeproj */,
+			);
+			path = Projects;
+			sourceTree = "<group>";
+		};
+		69874A562969BE7100AA3DD0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				69874A5A2969BE7100AA3DD0 /* modularized_shared_module.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		C2F70E8CDCC9908E0F3D74F2 /* Frameworks */ = {
@@ -115,6 +160,7 @@
 				698749EB2969B50200AA3DD0 /* Sources */,
 				698749EC2969B50200AA3DD0 /* Frameworks */,
 				698749ED2969B50200AA3DD0 /* Resources */,
+				69874A5D2969BE7700AA3DD0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -150,12 +196,28 @@
 			mainGroup = 698749E52969B50200AA3DD0;
 			productRefGroup = 698749F02969B50200AA3DD0 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 69874A562969BE7100AA3DD0 /* Products */;
+					ProjectRef = 69874A552969BE7100AA3DD0 /* modularized_shared_module.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				698749EE2969B50200AA3DD0 /* modularized_module_b */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		69874A5A2969BE7100AA3DD0 /* modularized_shared_module.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = modularized_shared_module.framework;
+			remoteRef = 69874A592969BE7100AA3DD0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		698749ED2969B50200AA3DD0 /* Resources */ = {
