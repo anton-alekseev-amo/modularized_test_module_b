@@ -7,31 +7,21 @@
 
 import UIKit
 import SnapKit
+import modularized_shared_module
 
 public protocol ModuleBViewControllerDelegate: AnyObject {
-    func moduleBDidSelectItem(with ID: UUID)
+    func moduleBDidSelectItem(with ID: SharedDisplayItemIdentifier)
 }
 
 public class ModuleBViewController: UIViewController {
-    public struct DisplayItem: Identifiable {
-        public var id = UUID()
-        public var title: String
-        public var subtitle: String
-        
-        public init(id: UUID = UUID(), title: String, subtitle: String) {
-            self.id = id
-            self.title = title
-            self.subtitle = subtitle
-        }
-    }
     
     let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 100, height: 100), style: .plain)
     
-    var items: [DisplayItem]
+    var items: [SharedDisplayItem]
     var selectedID: UUID?
     public weak var delegate: ModuleBViewControllerDelegate?
 
-    public init(items: [DisplayItem], selectedID: UUID? = nil) {
+    public init(items: [SharedDisplayItem], selectedID: UUID? = nil) {
         self.items = items
         self.selectedID = selectedID
         super.init(nibName: nil, bundle: nil)
@@ -51,8 +41,8 @@ public class ModuleBViewController: UIViewController {
         self.view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(ModuleBTableViewCell.self, forCellReuseIdentifier: ModuleBTableViewCell.reuseIdentifier)
-        
+        tableView.register(SharedTableViewCell.self, forCellReuseIdentifier: SharedTableViewCell.reuseIdentifier)
+
         tableView.snp.makeConstraints { make in
             make.left.top.right.bottom.equalToSuperview()
         }
@@ -65,9 +55,14 @@ extension ModuleBViewController: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ModuleBTableViewCell.reuseIdentifier, for: indexPath) as? ModuleBTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: SharedTableViewCell.reuseIdentifier,
+            for: indexPath
+        ) as? SharedTableViewCell else {
+            return UITableViewCell()
+        }
         let item = items[indexPath.row]
-        cell.update(withTitle: item.title, subtitle: item.subtitle, selected: selectedID == item.id)
+        cell.update(with: item, selected: selectedID == item.id, selectedColor: .systemGreen)
         return cell
     }
 }
