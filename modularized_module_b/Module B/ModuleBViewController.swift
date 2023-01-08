@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import modularized_shared_module
+import modularized_module_b_details
 
 public protocol ModuleBViewControllerDelegate: AnyObject {
     func moduleBDidSelectItem(with ID: SharedDisplayItemIdentifier)
@@ -78,5 +79,8 @@ extension ModuleBViewController: UITableViewDelegate {
         self.tableView.reloadRows(at: indexPathesToReload, with: .automatic)
         
         self.delegate?.moduleBDidSelectItem(with: item.id)
+        
+        let detailsVC = DetailsViewController(item: item)
+        self.navigationController?.pushViewController(detailsVC, animated: true)
     }
 }
