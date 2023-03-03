@@ -75,6 +75,7 @@ extension ModuleBViewController: UITableViewDelegate {
         if let selectedID, let selectedIdx = items.firstIndex(where: { $0.id == selectedID }) {
             indexPathesToReload.append(IndexPath(row: selectedIdx, section: 0))
         }
+        print("Dast ist shiiiiii")
         self.selectedID = item.id
         self.tableView.reloadRows(at: indexPathesToReload, with: .automatic)
         
